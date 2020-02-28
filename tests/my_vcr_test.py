@@ -1,12 +1,11 @@
 """This is the custom vcr filter."""
 import json
 import os
+from typing import Any, Dict, List, Union
 
-from vcr import VCR
+from vcr.config import VCR
 
 # remove sensitive values from JSON response
-from typing import Any, Dict, List, Union
-from vcr.config import VCR
 BAD_FIELDS = [
     'checkInSessionToken',
     'first-name',
@@ -36,7 +35,9 @@ def redact(obj: Any) -> None:
             redact(v)
 
 
-def filter_payload(response: Dict[str, Dict[str, Union[bytes, List[str], int, str]]]) -> Dict[str, Dict[str, Union[bytes, List[str], int, str]]]:
+def filter_payload(
+        response: Dict[str, Dict[str, Union[bytes, List[str], int, str]]],
+) -> Dict[str, Dict[str, Union[bytes, List[str], int, str]]]:
     """Filter for before_record_response."""
     s = response['body']['string']
     if len(s) == 0:
