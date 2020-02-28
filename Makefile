@@ -12,6 +12,7 @@ default:
 	@echo
 	@echo '    make pre-commit   check coding style (PEP-8, PEP-257)'
 	@echo '    make test         run the test suite, report coverage'
+	@echo '    make report      generate reports'
 	@echo '    make docs         update documentation using Sphinx'
 	@echo '    make publish      publish changes to GitHub/PyPI'
 	@echo '    make clean        cleanup all temporary files'
@@ -20,6 +21,8 @@ default:
 pre-commit: clean
 	@TOXENV=pre-commit tox -v
 
+report:
+	@TOXENV=report tox -v
 
 test: clean
 	@TOXENV=python tox -v
@@ -41,4 +44,4 @@ clean:
 	@find . -d -type d -name __pycache__ -exec rm -Rf {} \;
 	@find . -type f -name '*.pyc' -delete
 
-.PHONY: default pre-commit test docs publish clean
+.PHONY: default pre-commit test docs publish clean reports

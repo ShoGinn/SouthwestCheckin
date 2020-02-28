@@ -111,7 +111,7 @@ class Reservation():
         for k, v in list(data.items()):
             if k.endswith('Page'):
                 return v
-        return None
+        return None  # pragma: no cover
 
     def with_suffix(self, uri):
         """Add the sw suffix to the url.

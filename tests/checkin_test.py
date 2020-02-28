@@ -14,7 +14,7 @@ RESERVATION = Reservation('XXXXXX', 'John', 'Smith')
 
 
 @MY_VCR.use_cassette()
-def test_generate_headers():
+def test_generate_headers() -> None:
     """Test generating headers."""
     headers = Reservation.generate_headers()
     assert headers['Content-Type'] == 'application/json'
@@ -22,7 +22,7 @@ def test_generate_headers():
 
 # pylint: disable=broad-except
 @MY_VCR.use_cassette()
-def test_reservation_lookup():
+def test_reservation_lookup() -> None:
     """Test reservation lookup."""
     try:
         RESERVATION.lookup_existing_reservation()
@@ -31,7 +31,7 @@ def test_reservation_lookup():
 
 
 @MY_VCR.use_cassette()
-def test_checkin():
+def test_checkin() -> None:
     """Test checking in."""
     try:
         RESERVATION.checkin()
@@ -40,7 +40,7 @@ def test_checkin():
 
 
 @MY_VCR.use_cassette()
-def test_checkin_without_passes():
+def test_checkin_without_passes() -> None:
     """Test checking in without passes."""
     try:
         RESERVATION.checkin()
@@ -49,7 +49,7 @@ def test_checkin_without_passes():
 
 
 @MY_VCR.use_cassette()
-def test_openflights_api():
+def test_openflights_api() -> None:
     """Test the openflights api."""
     assert timezone_for_airport('LAX').zone == 'America/Los_Angeles'
 
@@ -61,7 +61,7 @@ def verify_invoke_from_clirunner(result: Result, expected_output: str) -> None:
 
 
 @MY_VCR.use_cassette()
-def test_cli():
+def test_cli() -> None:
     """Test the cli with default options."""
     result: Result = CliRunner().invoke(
         command_line, ['-c', 'XXXXXX', '-f', 'John', '-l', 'Smith', '-v'],
@@ -69,7 +69,7 @@ def test_cli():
     assert result.exit_code == 0
 
 
-def test_cli_no_args():
+def test_cli_no_args() -> None:
     """Test the cli with no arguments."""
     result: Result = CliRunner().invoke(
         command_line, [],
@@ -78,7 +78,7 @@ def test_cli_no_args():
 
 
 @MY_VCR.use_cassette()
-def test_api_key_fail():
+def test_api_key_fail() -> None:
     """Test a failed api key."""
     result: Result = CliRunner().invoke(
         command_line, ['-c', 'XXXXXX', '-f', 'John', '-l', 'Smith'],
@@ -87,7 +87,7 @@ def test_api_key_fail():
 
 
 @MY_VCR.use_cassette()
-def test_bad_request():
+def test_bad_request() -> None:
     """Test a bad request."""
     config.max_attempts = 1
     result: Result = CliRunner().invoke(
@@ -97,7 +97,7 @@ def test_bad_request():
 
 
 @MY_VCR.use_cassette('test_bad_request.yml')
-def test_bad_request_verbose():
+def test_bad_request_verbose() -> None:
     """Test a bad request verbose."""
     config.max_attempts = 1
     result: Result = CliRunner().invoke(

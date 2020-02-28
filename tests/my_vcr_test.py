@@ -5,6 +5,8 @@ import os
 from vcr import VCR
 
 # remove sensitive values from JSON response
+from typing import Any, Dict, List, Union
+from vcr.config import VCR
 BAD_FIELDS = [
     'checkInSessionToken',
     'first-name',
@@ -20,7 +22,7 @@ BAD_FIELDS = [
 # pylint: disable=invalid-name
 
 
-def redact(obj):
+def redact(obj: Any) -> None:
     """Redact bad fields."""
     if isinstance(obj, (''.__class__, u''.__class__)):
         return
@@ -34,7 +36,7 @@ def redact(obj):
             redact(v)
 
 
-def filter_payload(response):
+def filter_payload(response: Dict[str, Dict[str, Union[bytes, List[str], int, str]]]) -> Dict[str, Dict[str, Union[bytes, List[str], int, str]]]:
     """Filter for before_record_response."""
     s = response['body']['string']
     if len(s) == 0:
@@ -48,7 +50,7 @@ def filter_payload(response):
         return response  # pylint: disable=lost-exception
 
 
-def custom_vcr():
+def custom_vcr() -> VCR:
     """Redifines vcr test."""
     dirname = os.path.dirname(__file__)
     return VCR(
