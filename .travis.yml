@@ -1,18 +1,97 @@
+---
+conditions: v1
 dist: xenial
 language: python
+
+git:
+  depth: 100
+
 env:
   global:
-    - CC_TEST_REPORTER_ID=3d0abe23b60c405d5de7e038f366649a8002c4ccedccabad3da0e3b3e9b5049b
+  - GITHUB_REPO=ShoGinn/SouthwestCheckin
+
+cache:
+  pip: true
+
 python:
-  - "2.7.15"
-  - "3.7.1"
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-script:
-  - pytest --cov=southwest/
-  - pycodestyle */*.py --show-source --ignore=E501
-after_script:
-  - coverage xml
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - "3.7"
+  - "3.8"
+
+before_install:
+  - pip install -U pip tox
+
+install:
+  - tox --notest
+
+script: tox -v
+
+after_success:
+  - pip install -U coveralls
+  - coveralls
+  - bash <(curl -f https://codecov.io/bash)
+
+stages:
+  - Pre-Commit
+  - "Build Docs"
+  - Test
+  - name: "Unstable Deploy"
+    if: type NOT IN (cron, pull_request)  # Always run, except if PR or cron
+  - name: "PyPI deploy"
+    if: tag IS present
+
+
+jobs:
+  fast_finish: true
+  include:
+  - stage: Pre-Commit
+    name: Checking pre-commit linter compliance
+    python: "3.8"
+    after_success: skip
+    env:
+      TOXENV: pre-commit
+  - stage: "Build Docs"
+    name: "Checking docs build"
+    env:
+      TOXENV: build-docs
+    python: "3.8"
+    after_success: skip
+
+  - stage: "Unstable Deploy"
+    python: "3.8"
+    after_success: echo "Skipping it to deploy"
+    env:
+      TOXENV: build-dists,metadata-validation
+    before_deploy:
+    - echo > setup.py
+    deploy:
+      - provider: pypi
+        skip-cleanup: true
+        user: __token__
+        password:
+          secure: >
+            oxTfowrkH8jW39qDnaaJHNIlJM7MCDl3JuKC2iRuIDaht/4oR6cDRnQZy9VQXi9BB5sibFKDi8bEl1SJH8CgjS//YzqAoRrfRzt5HUXXdsBJW0RkPsZAUbmgIWy28CtVLE5bVfLASGd/sGngtfUfsUcgDNz1OqDEOH0bepuN45o3ySaVRSWF9NtFvjh871OC7+UHixtj/cZfzNRhU+jLWHbVAeYwzzIOO6NKhHdLfzkC88pOIHUl4Xc2bkHtmmEiNx1tmCf0RffxNGW2HD8rFcR6EoDKupqEviNZO227AZs68QqaUbcbImZxaDGU6YKk/lQAUQZqrdbbIHTlgs5gSLibYg4t+kM9Rcrr6ZLsOHbzFW5Hrbw2uy5wFPAfLDeDLR/cl0Cn/8M3bWRRLERLzWik/BVB0nHj5pIG4wk2fTkZVBgn/x9RCApUl0U0MONMSPZxjMb9PJX4G+POATOQ0ccq+stbr/GHhKIuT3d2M2sQYIYB3WWagprvXFjXDbhY7z0GtIIPQA19Au3xOnudu0bPnXQxSMtvb/Z8lQ+mWVTawFFA5PMeunM6gE2bjbE4lhf87XTTX2iOJ186Q2Uz64o+Naj8etQ9xcZGhtCQ3rXI6shtEKjoYW5MstsS1KTn3aEX4NLbkOBhQpJ5clT4s3t4axbAKixw/M/2LoinN8c=
+        distributions:
+        server: https://test.pypi.org/legacy/
+        on:
+          repo: $GITHUB_REPO
+
+  - stage: "PyPI deploy"
+    if: type NOT IN (cron, pull_request)  # Always run, except if PR or cron
+    python: "3.8"
+    after_success: echo "Skipping it to deploy"
+    env:
+      TOXENV: build-dists,metadata-validation
+    before_deploy:
+    - echo > setup.py
+    deploy:
+      - provider: pypi
+        skip-cleanup: true
+        user: __token__
+        password:
+          secure: >
+            FsJ9v0yQ75pjfPiPhIXI29KNnWR/BZK/inAPlyNyDEl/35qEdNjyZr0wurBWN+JVqhfqcqp1BazK/lYtUV6xCOxRSdDBvklS14MIIoUbHZ/66IamTmy4cpdEq+Qr1dNk21T4NFG/l4WV8RQ3bKb+NWmHlnuW36sKMLGb4zrgbhkng+pMYwpfCBXKXUr0Xz+I++H7hguOhNuOyr3c16/ydvQa/AD1Ms+7q7rnAO/qGwElMAMbxHVchizmL9MUsiRHzr1EsyWhRGylXCrt6eQMti0kmcCvh8ytqKcVEjXBIYgt8CKq7mApdFLVkF7FXFGm3uuTWpjMoG85leLEKxumllecmcJ+i9jzno7goUn96gWyExVCw2jEu7x4FTzj1pT1Qqsq8CzRVYiQnpcC+pr7wAHN74xBkMYHMv6rwp3iFumbWQ0JHMFRHtznQjFVyqb/l0aGFctgvxVyWXG4uz9E6dTx5Ucj+HKGeguMhm25m0TAVmYkQu/jRQShdq1K9MZ0o/l08tJTani1NDnv3a0iBsvZE4rhXpr4Olp8+trFslzOSHVpqcImys312NHU98kVJ+7tkM6HVzpR7wkgQZago52uba233gcw+YXbtqcyPK0WW7gIS1F3//qp20f0qrzNGmXDmHm1vaIT60cuZx6Ps3ivrySYnrfYTadbUwB59FU=
+        distributions:
+        on:
+          repo: $GITHUB_REPO
+          tags: true
+          branch: master

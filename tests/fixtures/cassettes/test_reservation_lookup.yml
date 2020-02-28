@@ -9,7 +9,7 @@ interactions:
     method: GET
     uri: https://mobile.southwest.com/js/config.js
   response:
-    body: {string: !!python/unicode 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
+    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
         i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
         i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
         i=e&&e.__esModule?function(){return e.default}:function(){return e};return

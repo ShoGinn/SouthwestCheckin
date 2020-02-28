@@ -1,0 +1,201 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
+    method: GET
+    uri: https://mobile.southwest.com/js/config.js
+  response:
+    body:
+      string: this.mwebAppConfig=function(e){function t(r){if(i[r])return i[r].exports;var
+        n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
+        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
+        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
+        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=8)}({8:function(e,t,i){"use
+        strict";e.exports={LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-misc/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",SECURITY_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"101765e6-57f7-4bd1-b195-be4d586d71c3",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",ANALYTICS_URL:"/content/app/scripts/analytics/analytics.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU",API_GATEWAY_CHASE_API:"/api/chase/"}}});
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - max-age=26
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/javascript
+      Date:
+      - Sun, 16 Feb 2020 01:13:00 GMT
+      ETag:
+      - '"44f-59d5d48b69d40"'
+      Expires:
+      - Sun, 16 Feb 2020 01:13:26 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=60
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '1'
+      content-length:
+      - '1103'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Host:
+      - mobile.southwest.com
+      User-Agent:
+      - python-requests/2.22.0
+      X-API-Key:
+      - l7xx0a43088fe6254712b10787646d1b298e
+      X-User-Experience-Id:
+      - 796D9F66-5059-11EA-97B7-685B35BBDA1D
+    method: GET
+    uri: https://mobile.southwest.com/api/mobile-air-booking/v1/mobile-air-booking/page/view-reservation/xxx
+  response:
+    body:
+      string: '{"code": 400310456, "message": "Record Locator must have six characters",
+        "messageKey": "VALIDATION__AIR_RESERVATION__RECORD_LOCATOR__LENGTH", "header":
+        null, "httpStatusCode": "BAD_REQUEST", "requestId": "796D9F66-5059-11EA-97B7-685B35BBDA1D:yQqpbr8ZRcqVWBKfsvtE2Q:unknown",
+        "infoList": [{"key": "recordLocator", "value": "Record Locator must have six
+        characters"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, authorization, token, User-Agent, X-Forwarded-For,
+        X-User-Experience-ID, X-Request-ID, X-API-Key, X-Account-Number, X-Swa-Region,
+        X-Channel-Id, X-Api-IDToken, true-host
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS, HEAD
+      Access-Control-Allow-Origin:
+      - ''
+      Access-Control-Expose-Headers:
+      - X-User-Experience-ID, X-Request-ID
+      Access-Control-Max-Age:
+      - '1'
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 16 Feb 2020 01:13:00 GMT
+      Expires:
+      - Sun, 16 Feb 2020 01:13:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - SWA
+      Strict-Transport-Security:
+      - max-age=60
+      Vary:
+      - Accept-Encoding
+      X-API-Gateway:
+      - w11pcacagw43.swacorp.com
+      X-Cnection:
+      - close
+      - close
+      X-Request-ID:
+      - yQqpbr8ZRcqVWBKfsvtE2Q
+      X-User-Experience-ID:
+      - 796D9F66-5059-11EA-97B7-685B35BBDA1D
+      content-length:
+      - '351'
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Host:
+      - mobile.southwest.com
+      User-Agent:
+      - python-requests/2.22.0
+      X-API-Key:
+      - l7xx0a43088fe6254712b10787646d1b298e
+      X-User-Experience-Id:
+      - 796D9F66-5059-11EA-97B7-685B35BBDA1D
+    method: GET
+    uri: https://mobile.southwest.com/api/mobile-air-booking/v1/mobile-air-booking/page/view-reservation/xxx
+  response:
+    body:
+      string: '{"code": 400310456, "message": "Record Locator must have six characters",
+        "messageKey": "VALIDATION__AIR_RESERVATION__RECORD_LOCATOR__LENGTH", "header":
+        null, "httpStatusCode": "BAD_REQUEST", "requestId": "796D9F66-5059-11EA-97B7-685B35BBDA1D:fgDk_REFRQy4qc9dXhuCPQ:unknown",
+        "infoList": [{"key": "recordLocator", "value": "Record Locator must have six
+        characters"}]}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, authorization, token, User-Agent, X-Forwarded-For,
+        X-User-Experience-ID, X-Request-ID, X-API-Key, X-Account-Number, X-Swa-Region,
+        X-Channel-Id, X-Api-IDToken, true-host
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS, HEAD
+      Access-Control-Allow-Origin:
+      - ''
+      Access-Control-Expose-Headers:
+      - X-User-Experience-ID, X-Request-ID
+      Access-Control-Max-Age:
+      - '1'
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 16 Feb 2020 01:13:01 GMT
+      Expires:
+      - Sun, 16 Feb 2020 01:13:01 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - SWA
+      Strict-Transport-Security:
+      - max-age=60
+      Vary:
+      - Accept-Encoding
+      X-Cnection:
+      - close
+      - close
+      X-Request-ID:
+      - fgDk_REFRQy4qc9dXhuCPQ
+      X-User-Experience-ID:
+      - 796D9F66-5059-11EA-97B7-685B35BBDA1D
+      content-length:
+      - '351'
+    status:
+      code: 400
+      message: Bad Request
+version: 1

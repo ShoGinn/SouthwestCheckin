@@ -29,6 +29,110 @@ interactions:
       vary: [Accept-Encoding]
       x-frame-options: [SAMEORIGIN]
       x-xss-protection: ['1']
+    status: {code: 404, message: not_found}
+- request:
+    body: iata=LAX&country=ALL&db=airports&iatafilter=true&action=SEARCH&offset=0
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['71']
+      Content-Type: [application/x-www-form-urlencoded]
+      User-Agent: [python-requests/2.21.0]
+    method: POST
+    uri: https://openflights.org/php/apsearch.php
+  response:
+    body: {string: '{"status": 1, "offset": 0, "max": "1", "airports": [{"name": "[REDACTED]",
+        "city": "Los Angeles", "country": "United States", "iata": "LAX", "icao":
+        "KLAX", "x": "-118.4079971", "y": "33.94250107", "elevation": "125", "apid":
+        "3484", "timezone": "-8", "dst": "A", "tz_id": "America/Los_Angeles", "type":
+        "airport", "source": "OurAirports", "ap_uid": null, "ap_name": "Los Angeles
+        International. (LAX), United States"}]}'}
+    headers:
+      Cache-Control: ['no-store, no-cache, must-revalidate, post-check=0, pre-check=0']
+      Connection: [Keep-Alive]
+      Content-Type: [text/html]
+      Date: ['Mon, 18 Feb 2019 07:24:50 GMT']
+      Expires: ['Thu, 19 Nov 1981 08:52:00 GMT']
+      Keep-Alive: ['timeout=5, max=100']
+      Pragma: [no-cache]
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Set-Cookie: [PHPSESSID=mpoesla4lf9h12d3hnp5fn6t24; path=/]
+      Vary: [Accept-Encoding]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.26]
+      content-length: ['405']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Host: [mobile.southwest.com]
+      User-Agent: [python-requests/2.21.0]
+      X-API-Key: [l7xxb3dcccc4a5674bada48fc6fcf0946bc8]
+      X-User-Experience-Id: [AAAA3198-4545-46F4-9A05-BB3E868BEFF5]
+    method: GET
+    uri: https://mobile.southwest.com/api/mobile-air-booking/v1/mobile-air-booking/page/view-reservation/XXXXXX
+  response:
+    body: {string: '{"viewReservationViewPage": {"dates": {"first": "2019-02-18",
+        "second": null}, "checkInIneligibilityReason": null, "destinationDescription":
+        "Los Angeles", "originAirport": {"name": "[REDACTED]", "state": "OR", "code":
+        "PDX", "country": null}, "destinationAirport": {"name": "[REDACTED]", "state":
+        "CA", "code": "LAX", "country": null}, "standbyFlight": null, "companion":
+        null, "passengers": "[REDACTED]", "confirmationNumber": "XXXXXX", "shouldShowAddEarlyBirdButton":
+        false, "bounds": [{"departureStatus": "ON TIME", "departureStatusType": "POSITIVE",
+        "arrivalStatus": "ON TIME", "arrivalStatusType": "POSITIVE", "flights": [{"number":
+        "1614", "wifiOnBoard": true}], "travelTime": "2h 20m", "departureDate": "2019-02-18",
+        "departureTime": "13:45", "departureAirport": {"name": "[REDACTED]", "state":
+        "OR", "code": "PDX", "country": null}, "arrivalTime": "16:05", "arrivalAirport":
+        {"name": "[REDACTED]", "state": "CA", "code": "LAX", "country": null}, "passengerTypeCounts":
+        {"adult": 1, "senior": 0}, "fareType": "Companion", "boundType": "DEPARTING",
+        "standbyFlight": null, "stops": [], "isNextDayArrival": false}], "pageHeader":
+        "PDX - LAX", "shareDetails": {"subject": "Southwest Flight 1614 Portland to
+        Los Angeles", "confirmationInfo": "Confirmation #: XXXXXX", "passengerInfo":
+        "[REDACTED]", "flightInfo": [{"header": "Departing Flight: Mon, Feb 18, 2019",
+        "flightInfo": "Flight #: 1614", "departureInfo": "Departs: 01:45 PM PDX",
+        "stops": null, "arrivalInfo": "Arrives: 04:05 PM LAX", "travelTime": "Travel
+        time: 2hr 20 mins"}]}, "hasAnyCancelledFlights": false, "isCheckInEligible":
+        true, "isCheckedIn": true, "isInternational": false, "isDynamicWaiver": false,
+        "isNonRevPnr": false, "_v1_infoNeededToChange": {"href": "/v1/mobile/reservations/record-locator/XXXXXX",
+        "method": "GET", "query": {"action": "CHANGE", "first-name": "[REDACTED]",
+        "last-name": "[REDACTED]"}}, "_v1_infoNeededToCancel": {"href": "/v1/mobile/reservations/record-locator/XXXXXX",
+        "method": "GET", "query": {"action": "CANCEL", "first-name": "[REDACTED]",
+        "last-name": "[REDACTED]"}}, "_v1_infoNeededToAddCompanion": null, "_links":
+        {"checkInSessionToken": "[REDACTED]", "earlyBird": null, "change": {"href":
+        "/v1/mobile-air-booking/page/flights/change/current/XXXXXX", "method": "GET",
+        "query": {"first-name": "[REDACTED]", "last-name": "[REDACTED]"}}, "cancel":
+        {"href": "/v1/mobile-air-booking/page/cancel-reservation/XXXXXX", "method":
+        "GET", "query": {"first-name": "[REDACTED]", "last-name": "[REDACTED]"}},
+        "viewStandbyList": null, "checkIn": null, "viewBoardingPass": {"href": "/v1/mobile-air-operations/page/check-in/view-boarding-pass",
+        "method": "POST", "body": {"firstName": "[REDACTED]", "lastName": "[REDACTED]",
+        "recordLocator": "[REDACTED]"}}, "viewBoardingPositions": null, "addCompanion":
+        null, "passportEmergencyContacts": null}, "hasUnaccompaniedMinor": false}}'}
+    headers:
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['origin, content-type, accept, authorization,
+          token, User-Agent, X-Forwarded-For, X-User-Experience-ID, X-Request-ID,
+          X-API-Key, X-Account-Number, X-Swa-Region, X-Channel-Id, X-Api-IDToken,
+          true-host']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['']
+      Access-Control-Expose-Headers: ['X-User-Experience-ID, X-Request-ID']
+      Access-Control-Max-Age: ['1']
+      Cache-Control: ['max-age=0, no-cache, no-store']
+      Connection: [keep-alive]
+      Content-Type: [application/json]
+      Date: ['Mon, 18 Feb 2019 07:24:47 GMT']
+      Expires: ['Mon, 18 Feb 2019 07:24:47 GMT']
+      Pragma: [no-cache]
+      Server: [Apache-Coyote/1.1]
+      Strict-Transport-Security: [max-age=60]
+      Vary: [Accept-Encoding]
+      X-Request-ID: [6JM3yBL0QIahYeZtLYc8QA]
+      X-User-Experience-ID: [AAAA3198-4545-46F4-9A05-BB3E868BEFF5]
+      content-length: ['8422']
     status: {code: 200, message: OK}
 - request:
     body: null
@@ -88,37 +192,6 @@ interactions:
       content-length: ['13088']
     status: {code: 200, message: OK}
 - request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: https://mobile.southwest.com/js/config.js
-  response:
-    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
-        i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
-        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
-        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
-        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=9)}({9:function(e,t,i){"use
-        strict";e.exports={MOBILE_API:"/api/extensions/",ACCOUNTS_API:"/api/customer/",RESERVATIONS_API:"/api/reservations-api/",TRAVEL_API:"/api/travel-api/",LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-air-booking/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",OAUTH_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"19ed95ce-83c1-4016-bfda-77b1d8740c9f",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",GOOGLE_MAPS_CLIENT_ID:"gme-southwest",ANALYTICS_URL:"/content/app/scripts/analytics/dtm.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU"}}});'}
-    headers:
-      accept-ranges: [bytes]
-      cache-control: [max-age=595]
-      connection: [keep-alive]
-      content-length: ['1228']
-      content-type: [application/javascript]
-      date: ['Wed, 17 Apr 2019 15:43:23 GMT']
-      etag: ['"4cc-581ba2491fa40"']
-      expires: ['Wed, 17 Apr 2019 15:53:18 GMT']
-      server: [swahttp]
-      strict-transport-security: [max-age=60]
-      vary: [Accept-Encoding]
-      x-frame-options: [SAMEORIGIN]
-      x-xss-protection: ['1']
-    status: {code: 200, message: OK}
-- request:
     body: '{}'
     headers:
       Accept: ['*/*']
@@ -138,7 +211,11 @@ interactions:
         "1614", "hasWifi": true, "travelTime": "2h 20m"}], "_v1_infoNeededToViewBoardingPasses":
         {"href": "/v1/mobile/record-locator/XXXXXX/mobile-boarding-passes", "method":
         "GET", "query": {"first-name": "[REDACTED]", "last-name": "[REDACTED]"}},
-        "_links": null}}'}
+        "_links": {"boardingPasses": {"href": "/v1/mobile-air-operations/page/check-in/view-boarding-pass",
+        "method": "POST", "body": {"recordLocator": "[REDACTED]", "firstName": "[REDACTED]",
+        "lastName": "[REDACTED]", "checkInSessionToken": "[REDACTED]", "travelerID":
+        "2005DBDA00087702"}}, "viewBoardingPassIssuance": {"href": "/v1/mobile-air-operations/page/check-in/mobile-issuance/XXXXXX",
+        "method": "POST", "body": {"passengers": "[REDACTED]"}}}}}'}
     headers:
       Access-Control-Allow-Credentials: ['true']
       Access-Control-Allow-Headers: ['origin, content-type, accept, authorization,
@@ -161,37 +238,6 @@ interactions:
       X-Request-ID: [YKbshcq_RJ2cCrd0FRsctQ]
       X-User-Experience-ID: [AAAA3198-4545-46F4-9A05-BB3E868BEFF5]
       content-length: ['12674']
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: https://mobile.southwest.com/js/config.js
-  response:
-    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
-        i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
-        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
-        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
-        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=9)}({9:function(e,t,i){"use
-        strict";e.exports={MOBILE_API:"/api/extensions/",ACCOUNTS_API:"/api/customer/",RESERVATIONS_API:"/api/reservations-api/",TRAVEL_API:"/api/travel-api/",LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-air-booking/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",OAUTH_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"19ed95ce-83c1-4016-bfda-77b1d8740c9f",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",GOOGLE_MAPS_CLIENT_ID:"gme-southwest",ANALYTICS_URL:"/content/app/scripts/analytics/dtm.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU"}}});'}
-    headers:
-      accept-ranges: [bytes]
-      cache-control: [max-age=595]
-      connection: [keep-alive]
-      content-length: ['1228']
-      content-type: [application/javascript]
-      date: ['Wed, 17 Apr 2019 15:43:23 GMT']
-      etag: ['"4cc-581ba2491fa40"']
-      expires: ['Wed, 17 Apr 2019 15:53:18 GMT']
-      server: [swahttp]
-      strict-transport-security: [max-age=60]
-      vary: [Accept-Encoding]
-      x-frame-options: [SAMEORIGIN]
-      x-xss-protection: ['1']
     status: {code: 200, message: OK}
 - request:
     body: '{}'
@@ -242,37 +288,6 @@ interactions:
       content-length: ['12851']
     status: {code: 200, message: OK}
 - request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: https://mobile.southwest.com/js/config.js
-  response:
-    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
-        i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
-        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
-        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
-        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=9)}({9:function(e,t,i){"use
-        strict";e.exports={MOBILE_API:"/api/extensions/",ACCOUNTS_API:"/api/customer/",RESERVATIONS_API:"/api/reservations-api/",TRAVEL_API:"/api/travel-api/",LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-air-booking/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",OAUTH_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"19ed95ce-83c1-4016-bfda-77b1d8740c9f",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",GOOGLE_MAPS_CLIENT_ID:"gme-southwest",ANALYTICS_URL:"/content/app/scripts/analytics/dtm.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU"}}});'}
-    headers:
-      accept-ranges: [bytes]
-      cache-control: [max-age=595]
-      connection: [keep-alive]
-      content-length: ['1228']
-      content-type: [application/javascript]
-      date: ['Wed, 17 Apr 2019 15:43:23 GMT']
-      etag: ['"4cc-581ba2491fa40"']
-      expires: ['Wed, 17 Apr 2019 15:53:18 GMT']
-      server: [swahttp]
-      strict-transport-security: [max-age=60]
-      vary: [Accept-Encoding]
-      x-frame-options: [SAMEORIGIN]
-      x-xss-protection: ['1']
-    status: {code: 200, message: OK}
-- request:
     body: '{"travelerID": "2005DBDA00087702"}'
     headers:
       Accept: ['*/*']
@@ -321,37 +336,6 @@ interactions:
       content-length: ['3927']
     status: {code: 200, message: OK}
 - request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: https://mobile.southwest.com/js/config.js
-  response:
-    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
-        i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
-        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
-        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
-        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=9)}({9:function(e,t,i){"use
-        strict";e.exports={MOBILE_API:"/api/extensions/",ACCOUNTS_API:"/api/customer/",RESERVATIONS_API:"/api/reservations-api/",TRAVEL_API:"/api/travel-api/",LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-air-booking/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",OAUTH_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"19ed95ce-83c1-4016-bfda-77b1d8740c9f",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",GOOGLE_MAPS_CLIENT_ID:"gme-southwest",ANALYTICS_URL:"/content/app/scripts/analytics/dtm.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU"}}});'}
-    headers:
-      accept-ranges: [bytes]
-      cache-control: [max-age=595]
-      connection: [keep-alive]
-      content-length: ['1228']
-      content-type: [application/javascript]
-      date: ['Wed, 17 Apr 2019 15:43:23 GMT']
-      etag: ['"4cc-581ba2491fa40"']
-      expires: ['Wed, 17 Apr 2019 15:53:18 GMT']
-      server: [swahttp]
-      strict-transport-security: [max-age=60]
-      vary: [Accept-Encoding]
-      x-frame-options: [SAMEORIGIN]
-      x-xss-protection: ['1']
-    status: {code: 200, message: OK}
-- request:
     body: '{"travelerID": "2005DBDA00087702", "recordLocator": "[REDACTED]", "checkInSessionToken": "[REDACTED]", "mediaType": "SMS", "phoneNumber": "1234567890"}'
     headers:
       Accept: ['*/*']
@@ -390,37 +374,6 @@ interactions:
       X-User-Experience-ID: [AAAA3198-4545-46F4-9A05-BB3E868BEFF5]
       content-length: ['0']
     status: {code: 204, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: https://mobile.southwest.com/js/config.js
-  response:
-    body: {string: 'this.mwebAppConfig=function(e){function t(r){if(i[r])return
-        i[r].exports;var n=i[r]={i:r,l:!1,exports:{}};return e[r].call(n.exports,n,n.exports,t),n.l=!0,n.exports}var
-        i={};return t.m=e,t.c=i,t.d=function(e,i,r){t.o(e,i)||Object.defineProperty(e,i,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var
-        i=e&&e.__esModule?function(){return e.default}:function(){return e};return
-        t.d(i,"a",i),i},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=9)}({9:function(e,t,i){"use
-        strict";e.exports={MOBILE_API:"/api/extensions/",ACCOUNTS_API:"/api/customer/",RESERVATIONS_API:"/api/reservations-api/",TRAVEL_API:"/api/travel-api/",LUV_API:"https://luv.southwest.com",CAR_API:"/api/car-reservations/",CHAPI_MISC:"/api/mobile-air-booking/",CHAPI_AIR_OPERATIONS:"/api/mobile-air-operations/",CHAPI_AIR_BOOKING:"/api/mobile-air-booking/",OAUTH_API:"/api/security/",LOGGING_API:"/api/logging/",OAUTH_CLIENT_ID:"19ed95ce-83c1-4016-bfda-77b1d8740c9f",CONTENT_API:"/api/content-delivery/",API_KEY:"l7xx0a43088fe6254712b10787646d1b298e",GOOGLE_MAPS_CLIENT_ID:"gme-southwest",ANALYTICS_URL:"/content/app/scripts/analytics/dtm.js",USER_CAN_CHANGE_TOGGLES:!1,BRANCH_KEY:"key_live_giugWIpIXUYa4N52lEYdgbcfDyg004TU"}}});'}
-    headers:
-      accept-ranges: [bytes]
-      cache-control: [max-age=595]
-      connection: [keep-alive]
-      content-length: ['1228']
-      content-type: [application/javascript]
-      date: ['Wed, 17 Apr 2019 15:43:23 GMT']
-      etag: ['"4cc-581ba2491fa40"']
-      expires: ['Wed, 17 Apr 2019 15:53:18 GMT']
-      server: [swahttp]
-      strict-transport-security: [max-age=60]
-      vary: [Accept-Encoding]
-      x-frame-options: [SAMEORIGIN]
-      x-xss-protection: ['1']
-    status: {code: 200, message: OK}
 - request:
     body: '{"travelerID": "2005DBDA00087702", "recordLocator": "[REDACTED]", "checkInSessionToken": "[REDACTED]", "mediaType": "EMAIL", "phoneNumber": "test@example.com"}'
     headers:

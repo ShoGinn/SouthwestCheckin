@@ -1,9 +1,6 @@
-FROM python:3.7
-WORKDIR /usr/src/app
+FROM python:3.7-alpine
+COPY . /app/swcheckin/
+RUN apk add --no-cache tini git && \
+    pip install --no-cache-dir /app/swcheckin
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/app/swcheckin/docker-entrypoint.sh"]
