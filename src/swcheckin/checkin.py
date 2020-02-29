@@ -6,9 +6,8 @@ from threading import Thread
 
 from humanfriendly import format_timespan
 from pytz import utc
-
-from .openflights import timezone_for_airport
-from .southwest import Reservation
+from swcheckin.southwest import Reservation
+from swcheckin.utils.openflights import timezone_for_airport
 
 CHECKIN_EARLY_SECONDS = 5
 

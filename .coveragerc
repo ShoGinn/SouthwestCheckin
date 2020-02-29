@@ -15,7 +15,6 @@ concurrency = multiprocessing
 [report]
 show_missing = True
 precision = 2
-omit=*/version*
 ;; Regexes for lines to exclude from consideration
 exclude_lines =
     ;; Have to re-enable the standard pragma
