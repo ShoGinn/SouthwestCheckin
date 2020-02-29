@@ -11,6 +11,16 @@ Changelog`_. This project adheres to `semantic versioning`_.
 .. _Keep a Changelog: http://keepachangelog.com/
 .. _semantic versioning: http://semver.org/
 
+`Release 2.1`_ (2020-02-29)
+---------------------------
+
+Removed the docker integration to another repo
+See `swcheckin-docker`_.
+
+
+.. _swcheckin-docker: https://github.com/ShoGinn/swcheckin-docker/
+.. _Release 2.1: https://github.com/ShoGinn/SouthWestCheckin/compare/2.0...2.1
+
 `Release 2.0`_ (2020-02-22)
 ---------------------------
 

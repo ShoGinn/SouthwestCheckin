@@ -26,35 +26,27 @@ Host
 -  Python3 (2.0 has hit twilight)
 -  `pip`_
 
-Docker
-~~~~~~
-
--  Docker (tested with 1.12.6)
-
 Setup
 -----
 
 Install Hosts Base Package Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: bash
-
-   pip install .
-
 Usage
 ^^^^^
 
 .. code:: bash
 
+   pip install swcheckin
    swcheckin -c CONFIRMATION_NUMBER -f FIRST_NAME -l LAST_NAME
 
 Docker Usage
 ^^^^^^^^^^^^
 
-.. code:: bash
+See the `swcheckin-docker`_ build for the docker instructions
 
-   sudo docker run -it shoginn/southwestcheckin:latest -c CONFIRMATION_NUMBER -f FIRST_NAME -l LAST_NAME
 
+.. _swcheckin-docker: https://github.com/ShoGinn/swcheckin-docker/
 .. _pip: https://pypi.python.org/pypi/pip
 
 .. |Build Status| image:: https://travis-ci.com/ShoGinn/SouthwestCheckin.svg?branch=master
