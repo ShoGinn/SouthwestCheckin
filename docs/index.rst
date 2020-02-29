@@ -1,34 +1,26 @@
-swcheckin: Human friendly input/output in Python
-====================================================
+.. swcheckin documentation master file, created by
+   sphinx-quickstart on Tue Mar 12 14:26:59 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-Welcome to the documentation of `swcheckin` version |release|! The
-following sections are available:
+|project|: The SouthwestCheckin engine
+======================================
 
-.. contents::
-   :local:
+.. include:: ../README.rst
+   :end-before: DO-NOT-REMOVE-docs-badges-END
 
-User documentation
-------------------
-
-The readme is the best place to start reading, it's targeted at all users and
-documents the command line interface:
-
-.. toctree::
-   readme.rst
-
-API documentation
------------------
-
-The following API documentation is automatically generated
-from the source code:
+.. include:: ../README.rst
+   :start-after: DO-NOT-REMOVE-docs-intro-START
 
 .. toctree::
-   api.rst
+   :maxdepth: 2
+   :caption: Contents:
 
-Change log
-----------
+   reference/modules.rst
 
-The change log lists notable changes to the project:
+Indices and tables
+==================
 
-.. toctree::
-   changelog.rst
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

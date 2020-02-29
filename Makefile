@@ -12,7 +12,7 @@ default:
 	@echo
 	@echo '    make pre-commit   check coding style (PEP-8, PEP-257)'
 	@echo '    make test         run the test suite, report coverage'
-	@echo '    make report      generate reports'
+	@echo '    make report       generate reports'
 	@echo '    make docs         update documentation using Sphinx'
 	@echo '    make publish      publish changes to GitHub/PyPI'
 	@echo '    make clean        cleanup all temporary files'
@@ -40,7 +40,7 @@ publish: install
 	@$(MAKE) clean
 
 clean:
-	@rm -Rf *.egg .cache .coverage .tox build dist docs/build htmlcov coverage.xml .*_cache .eggs
+	@rm -Rf *.egg .cache .coverage .tox build dist docs/build docs/reference htmlcov coverage.xml .*_cache .eggs
 	@find . -d -type d -name __pycache__ -exec rm -Rf {} \;
 	@find . -type f -name '*.pyc' -delete
 
