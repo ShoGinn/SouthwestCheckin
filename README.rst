@@ -2,8 +2,7 @@
 
 .. DO-NOT-REMOVE-docs-badges-END
 
-|Build Status| |Test Coverage| |Docker Build Status|
-|Docker Image Size|
+|Build Status| |Test Coverage| |RTD|
 
 SW Checkin
 ==========
@@ -49,20 +48,18 @@ See the `swcheckin-docker`_ build for the docker instructions
 .. _swcheckin-docker: https://github.com/ShoGinn/swcheckin-docker/
 .. _pip: https://pypi.python.org/pypi/pip
 
-.. |Build Status| image:: https://travis-ci.com/ShoGinn/SouthwestCheckin.svg?branch=master
+.. |Build Status| image:: https://img.shields.io/travis/com/ShoGinn/SouthwestCheckin.svg?label=Linux%20builds&logo=travis&logoColor=white
    :target: https://travis-ci.com/ShoGinn/SouthwestCheckin
    :alt: Travis buildstatus
 .. |Test Coverage| image:: https://coveralls.io/repos/github/ShoGinn/SouthwestCheckin/badge.svg?branch=master
    :target: https://coveralls.io/github/ShoGinn/SouthwestCheckin?branch=master
    :alt: Coveralls Test Coverage
-.. |Docker Build Status| image:: https://img.shields.io/docker/automated/shoginn/southwestcheckin.svg?style=flat
-   :target: https://hub.docker.com/r/shoginn/southwestcheckin
-   :alt: Docker Build Status
-.. |Docker Image Size| image:: https://images.microbadger.com/badges/image/shoginn/southwestcheckin.svg
-   :target: https://microbadger.com/images/pyro2927/southwestcheckin
-   :alt: Docker Image Size
 .. |SW Heart| image:: https://github.com/ShoGinn/SouthwestCheckin/raw/master/img/heart_1.jpg
    :alt: Sw Heart Image
 .. |PyPI| image:: https://img.shields.io/pypi/v/swcheckin.svg?logo=Python&logoColor=white
    :target: https://pypi.org/project/swcheckin
    :alt: swcheckin @ PyPI
+.. |RTD| image:: https://img.shields.io/readthedocs/swcheckin/latest.svg?logo=Read%20The%20Docs&logoColor=white
+   :target: https://swcheckin.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
