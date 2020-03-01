@@ -11,10 +11,21 @@ Changelog`_. This project adheres to `semantic versioning`_.
 .. _Keep a Changelog: http://keepachangelog.com/
 .. _semantic versioning: http://semver.org/
 
+`Release 2.2`_ (2020-03-01)
+---------------------------
+
+Clened up the directory a bit, and integrated with ReadTheDocs
+
+See `ReadtheDocs.org`_.
+
+.. _ReadTheDocs.org: https://swcheckin.readthedocs.io/en/latest/?badge=latest
+.. _Release 2.2: https://github.com/ShoGinn/SouthWestCheckin/compare/2.1...2.2
+
+
 `Release 2.1`_ (2020-02-29)
 ---------------------------
 
-Removed the docker integration to another repo
+Removed the docker integration to another repo.
 See `swcheckin-docker`_.
 
 
