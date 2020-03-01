@@ -1,15 +1,66 @@
 # -*- coding: utf-8 -*-
 """Documentation build configuration file for the `swcheckin` package."""
 
-import os
-import sys
 from email import message_from_string
 from itertools import chain
 
 import pkg_resources
 
-# Add the 'swcheckin' source distribution's root directory to the module path.
-sys.path.insert(0, os.path.abspath('..'))
+# RTD hack start
+
+
+def patch_setuptools_in_rtd():
+    """Install newer setuptools and swcheckin in RTD."""
+    import os  # pylint: disable=import-outside-toplevel
+    import sys  # pylint: disable=import-outside-toplevel
+    import subprocess  # pylint: disable=import-outside-toplevel
+
+    if not os.getenv('READTHEDOCS') or os.getenv('READTHEDOCS_EXEC'):
+        return
+
+    # pylint: disable=unexpected-keyword-arg
+    pyenv_python_executable = subprocess.check_output(
+        ('pyenv', 'which', 'python3.7'), text=True,
+    ).strip()
+    setuptools_update_cmd = (
+        pyenv_python_executable, '-m',
+        'pip', 'install', '--force-reinstall',
+        '--cache-dir', '/home/docs/checkouts/readthedocs.org/user_builds'
+        '/swcheckin/.cache/pip', 'setuptools >= 40.9.0',
+    )
+    pip_update_cmd = (
+        sys.executable, '-m',
+        'pip', 'install', '--force-reinstall',
+        '--cache-dir', '/home/docs/checkouts/readthedocs.org/user_builds'
+        '/swcheckin/.cache/pip', 'pip >= 19.0.3',
+    )
+    swcheckin_install_cmd = (
+        sys.executable, '-m',
+        'pip', 'install', '--force-reinstall',
+        '--cache-dir', '/home/docs/checkouts/readthedocs.org/user_builds'
+        '/swcheckin/.cache/pip', '..[docs]',
+    )
+    print('>>>>> Bumping setuptools...', file=sys.stderr)
+    subprocess.check_call(setuptools_update_cmd)
+    print('>>>>> Bumping pip...', file=sys.stderr)
+    subprocess.check_call(pip_update_cmd)
+    print('>>>>> Installing swcheckin...', file=sys.stderr)
+    subprocess.check_call(swcheckin_install_cmd)
+
+    new_env = dict(os.environ)
+    new_env['READTHEDOCS_EXEC'] = 'True'
+
+    print('>>>>> Restarting Sphinx build...', file=sys.stderr)
+    print(
+        f'Sphinx build command is `{sys.executable} {" ".join(sys.argv)}`',
+        file=sys.stderr,
+    )
+    os.execve(sys.executable, (sys.executable, *sys.argv), new_env)
+
+
+patch_setuptools_in_rtd()
+del patch_setuptools_in_rtd
+# RTD hack end
 
 
 def get_supported_pythons(classifiers):
