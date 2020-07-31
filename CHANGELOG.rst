@@ -11,6 +11,17 @@ Changelog`_. This project adheres to `semantic versioning`_.
 .. _Keep a Changelog: http://keepachangelog.com/
 .. _semantic versioning: http://semver.org/
 
+`Release 2.3`_ (2020-07-31)
+---------------------------
+
+Had to update the response for x-origin
+
+See `ReadtheDocs.org`_.
+
+.. _ReadTheDocs.org: https://swcheckin.readthedocs.io/en/latest/?badge=latest
+.. _Release 2.3: https://github.com/ShoGinn/SouthWestCheckin/compare/2.2...2.3
+
+
 `Release 2.2`_ (2020-03-01)
 ---------------------------
 
