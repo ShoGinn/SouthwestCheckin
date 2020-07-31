@@ -48,6 +48,7 @@ class Reservation():
             'X-API-Key': api_key,
             'X-User-Experience-Id': user_experience_key,
             'Accept': '*/*',
+            'X-Channel-ID': 'MWEB',
         }
 
     # You might ask yourself, "Why the hell does this exist?"

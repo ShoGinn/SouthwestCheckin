@@ -105,6 +105,6 @@ def auto_checkin(
             break
         for checkin_thread in threads:
             checkin_thread.join(5)
-            if not checkin_thread.isAlive():
+            if not checkin_thread.is_alive():
                 threads.remove(checkin_thread)
                 break
